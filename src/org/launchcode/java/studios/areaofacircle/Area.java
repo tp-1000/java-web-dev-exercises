@@ -19,14 +19,3 @@ public class Area {
     }
 }
 
-
-/*write a class for Area
-It will:
-    1. prompt user for radius
-    2. print calculated area.
-
-1-- use of: scanner, sytstem.in/out, println, data types wiil be decimal use double for consitency
-
-2-- use of: System out println, calculatoin will be done and set to area variable which will be used in the println statment.
-    Will need: var for pi (check java librabry) rest should be r*r*pi = A
-*/
