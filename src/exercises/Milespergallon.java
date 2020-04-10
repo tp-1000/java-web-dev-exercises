@@ -12,7 +12,7 @@ public class Milespergallon {
         float milesDriven = input.nextFloat();
         input.close();
 
-        System.out.println("You just got" + milesDriven/gasUsed + "MPG");
+        System.out.println("You just got " + milesDriven/gasUsed + "MPG");
 
     }
 
