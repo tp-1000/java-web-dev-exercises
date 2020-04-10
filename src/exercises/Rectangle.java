@@ -14,7 +14,7 @@ public class Rectangle {
         input.close();
 
         float area = (width * heigth);
-        System.out.println(area);
+        System.out.println("The area of your rectange is: " + area);
     }
 
 }
