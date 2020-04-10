@@ -8,9 +8,10 @@ public class HelloMethods {
     public static void main(String[] args) {
         Scanner input;
 
-        input = new Scanner(System.in);
         System.out.println("whats your name?");
+        input = new Scanner(System.in);
         String aName = input.next();
+        input.close();
         String message = Message.getMessage("Eng", aName);
         System.out.println(message);
     }
