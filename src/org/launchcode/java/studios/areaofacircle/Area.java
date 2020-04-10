@@ -1,8 +1,8 @@
 package org.launchcode.java.studios.areaofacircle;
 
 import java.util.Scanner;
-import static java.lang.Math.PI;
 import static java.lang.Math.round;
+
 
 public class Area {
 
@@ -14,7 +14,7 @@ public class Area {
         input.close();
 
         // print area calculation
-        double area = PI*r*r;
+        double area = Circle.getArea(r);
         System.out.println("The area for circle of radius " + r + " is: " + round(area*1000)/1000.);
     }
 }
