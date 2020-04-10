@@ -1,6 +1,5 @@
 package exercises;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Stringsearch {
 
@@ -12,12 +11,16 @@ public class Stringsearch {
                 " a book,' thought Alice 'without pictures or conversation?'";
         Scanner input = new Scanner(System.in);
         System.out.println("Enter search term: ");
-        String searchTerm = input.nextLine().toLowerCase();
+        String searchTerm = input.nextLine();
         input.close();
 
 
-        if (text.toLowerCase().contains(searchTerm)) {
-            System.out.println("Your search term was found.");
+        if (text.toLowerCase().contains(searchTerm.toLowerCase())) {
+            int firstIndex = text.toLowerCase().indexOf(searchTerm.toLowerCase());
+            System.out.println("The term " + searchTerm + " (length " + searchTerm.length() + ") appears at index " + firstIndex);
+
+            String newText = text.substring(0,firstIndex) + text.substring(firstIndex + searchTerm.length());
+            System.out.println(newText);
             return;
         }
         System.out.println("Search term not found.");
