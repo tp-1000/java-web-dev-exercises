@@ -8,33 +8,22 @@ import static java.lang.Math.round;
 public class Area {
 
     public static void main (String[] args) {
-        //ask for radius -- validate with message -- repeat until valid input is provided
+        //ask for radius -- repeat until valid input is provided -- methodcall with output
         //request radius
         System.out.println("What is your radius: ");
         Scanner input = new Scanner(System.in);
         double r;
 
         //start loop and continue until valid input is provided.
-        while(true) {
-            try {
-                r = input.nextDouble();
-                if(r <= 0) {
-                    System.out.println("Invalid entry,\nplease enter a number above 0: ");
-                    input = new Scanner(System.in);
-                } else {
-                    input.close();
-                    break;
-                }
-            }
-            catch (InputMismatchException nfe) {
-                System.out.println("Invalid entry,\nplease enter a number above 0: ");
-                input = new Scanner(System.in);
-            }
+        while (!input.hasNextDouble()) {
+            System.out.println("You must choose a number.\nWhat is your radius: ");
+            input.next();
         }
 
+        //assign validated input to r
+        r = input.nextDouble();
 
-
-        // print getArea() result.
+        //area of circle method call and final output
         double area = Circle.getArea(r);
         System.out.println("The area for circle of radius " + r + " is: " + round(area*1000)/1000.);
     }
