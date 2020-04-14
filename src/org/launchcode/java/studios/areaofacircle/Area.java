@@ -1,7 +1,8 @@
 package org.launchcode.java.studios.areaofacircle;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
 import static java.lang.Math.round;
 
 
@@ -16,12 +17,13 @@ public class Area {
 
         //start loop and continue until valid input is provided.
         while (!input.hasNextDouble()) {
-            System.out.println("You must choose a number.\nWhat is your radius: ");
+            System.out.println("You must choose a number,\nwhat is your radius: ");
             input.next();
         }
 
-        //assign validated input to r
+        //validated input assigned to r
         r = input.nextDouble();
+        input.close();
 
         //area of circle method call and final output
         double area = Circle.getArea(r);
