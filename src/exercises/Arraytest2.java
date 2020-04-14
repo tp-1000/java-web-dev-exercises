@@ -16,16 +16,16 @@ public class Arraytest2 {
 
 
     public static void bMethod(String text) {
-        int wordLength = 1;
+        int wordLength = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("what length word are you looking for? : ");
 
 
-//        while (!input.hasNextInt()) {
-//            System.out.println("Please pick an integer.\nWhat length word are you looking for? : ");
-//
-//        }
-//            wordLength = input.nextInt();
+        while (!input.hasNextInt()) {
+            System.out.println("Please pick an integer.\nWhat length word are you looking for? : ");
+            input.next();
+        }
+            wordLength = input.nextInt();
 
         String[] wordList = text.split("\\b");
         for (String word: wordList) {
