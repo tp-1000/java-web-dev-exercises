@@ -20,14 +20,13 @@ public class Totalcharacters {
             String[] line = input.nextLine().toLowerCase().split("");
             Collections.addAll(text,line);
         }
+        input.close();
 
-        //Could add method to handle passing each letter to buildCountList and improve efficiency.
-        //Currently runs with redundant method calls.
+        //Could add method to handle passing each letter to buildCountList and address efficiency issue.
+        //Currently is Capable of redundant method calls.
         for (Map.Entry<String, Integer> entry: buildCountList((text)).entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
-
-
     }
 
     private static HashMap<String, Integer> buildCountList(ArrayList<String> text) {
