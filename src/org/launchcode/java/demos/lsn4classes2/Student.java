@@ -29,21 +29,36 @@ public class Student {
     }
 
 
-     //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
-//        // Determine the grade level of the student based on numberOfCredits
-//    }
+    public String getGradeLevel() {
+        if(0 <= numberOfCredits && numberOfCredits <= 24) {
+            return this.name + " is a Freshman";
+        } else if(25 <= numberOfCredits && numberOfCredits <= 54) {
+            return this.name + " is a Sophomore";
+        } else if(55 <= numberOfCredits && numberOfCredits <= 88) {
+            return this.name + " is a Junior";
+        } else if(89 <= numberOfCredits) {
+            return this.name + " is a Senior";
+        }
 
-    // TODO: Complete the addGrade method.
-    public void addGrade(int courseCredits, double grade) {
-        // Update the appropriate fields: numberOfCredits, gpa
+        return "invalid grade level";
     }
 
-    // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
-    //  than just the class fields.
+    public void addGrade(int courseCredits, double grade) {
+        this.numberOfCredits += courseCredits;
+        this.gpa = grade;
+    }
 
-    // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
-    //  Student objects equal.
+    public String toString() {
+        return this.name + "[ID: " + studentId + "]" + " has taken " + numberOfCredits + " credit hours – " +
+                "GPA is " + this.gpa;
+     }
+
+     //custom equal method, based on student ID
+     public int hashCode() {
+        return this.studentId;
+     }
+
+
 
     public String getName() {
         return name;
@@ -61,29 +76,44 @@ public class Student {
         return gpa;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setStudentId(int studentId) {
+    private void setStudentId(int studentId) {
         this.studentId = studentId;
+        studentId++;
     }
 
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
 
-    private void setNumberOfCredits(int numberOfCredits) {
+    public void setNumberOfCredits(int numberOfCredits) {
         this.numberOfCredits = numberOfCredits;
     }
 
+
     public static void main(String[] args) {
         Student sally = new Student("Sally",1,1,4.0);
+        Student lilly = new Student("Lilly");
         System.out.println("The Student class works! " + sally.getName() + " is a student!");
-        System.out.println(sally);
+        System.out.println(sally.studentInfo());
         sally.addGrade(12, 3.5);
         System.out.println(sally);
         sally.addGrade(25, 3.8);
-        System.out.println(sally);
+        System.out.println(sally.studentInfo());
+        Student tom = new Student("Tom");
+        tom.addGrade(1, 4.0);
+
+
+        Teacher andrewP = new Teacher("Andrew", "Petty", "Archetecture", 4 );
+        Course english = new Course(andrewP, "Revit");
+        english.addStudent(sally);
+        english.addStudent(tom);
+        english.addStudent(lilly);
+        System.out.println(english);
+        System.out.println(english.getEnrolledStudents());
     }
 }
